@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  demo-db:
+    image: postgres:13
+    restart: always
+    ports:
+      - 5434:5432
+    environment:
+      POSTGRES_USER: devadmin
+      POSTGRES_PASSWORD: safe-password
+      POSTGRES_DB: demo
+
+    volumes:
+      - pgdata:/data/postgres
+
+volumes:
+  pgdata:
+    driver: local
